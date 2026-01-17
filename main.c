@@ -54,21 +54,15 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc < 2)
 		return (0);
-
 	init_stack_from_args(argc, argv, &a);
-
 	if (has_duplicates(a))
 	{
 		free_stack(a);
 		found_error();
 	}
-
 	assign_indexes(a);
-
 	if (!is_sorted(a))
 		sort_stack(&a, &b);
-
 	free_stack(a);
 	return (0);
 }
-

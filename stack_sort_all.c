@@ -18,4 +18,3 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 	else
 		chunk_sort(stack_a, stack_b);
 }
-

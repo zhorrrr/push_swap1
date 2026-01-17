@@ -18,13 +18,13 @@ int	*stack_to_array(t_stack *stack, size_t size)
 	return (arr);
 }
 
-void sort_array(int *arr, int size)
+void	sort_array(int *arr, int size)
 {
-    int i;
-    int j;
-    int tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
-    i = 0;
+	i = 0;
 	while (i < size - 1)
 	{
 		j = 0;
@@ -48,13 +48,13 @@ void	put_indexes(t_stack *stack, int *arr, int size)
 
 	while (stack != 0)
 	{
-        	i = 0;
+		i = 0;
 		while (i < size)
 		{
 			if (stack->value == arr[i])
 			{
 				stack->index = i;
-				break;
+				break ;
 			}
 			i++;
 		}
@@ -75,4 +75,3 @@ void	assign_indexes(t_stack *stack)
 	put_indexes(stack, arr, size);
 	free(arr);
 }
-

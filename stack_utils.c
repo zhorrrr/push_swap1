@@ -3,6 +3,7 @@
 t_stack	*stack_new(int value)
 {
 	t_stack	*node;
+
 	node = malloc(sizeof(t_stack));
 	if (node == NULL)
 		return (NULL);
@@ -57,7 +58,7 @@ int	is_sorted(t_stack *stack)
 		{
 			return (0);
 		}
-	node1 = node1->next;
+		node1 = node1->next;
 	}
 	return (1);
 }
@@ -67,7 +68,7 @@ void	free_stack(t_stack *stack)
 	t_stack	*tmp;
 
 	while (stack != 0)
-        {
+	{
 		tmp = stack->next;
 		free(stack);
 		stack = tmp;
