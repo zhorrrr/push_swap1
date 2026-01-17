@@ -12,9 +12,5 @@ int		execute_instruction(char *line, t_stack **a, t_stack **b);
 void    parse_all_args(int argc, char **argv, t_stack **a);
 
 char		*ft_strjoin_gcl(char *s1, char *s2);
-static char	*read_bytes_stsh(int fd, char *stash);
-static char	*extract_theline(char *stash);
-static char	*left_over_stash(char *stash);
 char		*get_next_line(int fd);
-
 #endif

@@ -18,17 +18,18 @@ int	parse_int(char *str)
 	int	i;
 	int	sign;
 	int	save;
-	int	digit;
 
 	i = 0;
-	sign = 1;
 	save = 0;
+	sign = 1;
 	if (str == NULL || str[0] == '\0')
 		found_error();
-	if (str[i] == '+' || str[i] == '-')
+	if (str[0] == '+' || str[0] == '-')
 	{
 		if (str[i] == '-')
+		{
 			sign = -1;
+		}
 		i++;
 	}
 	if (str[i] == '\0')
@@ -37,15 +38,40 @@ int	parse_int(char *str)
 	{
 		if (is_digit(str[i]) != 1)
 			found_error();
-		digit = str[i] - '0';
+		int	digit = str[i] - '0';
 		if (sign == 1 && save > (INT_MAX - digit) / 10)
 			found_error();
-		if (sign == -1 && save > ((long)INT_MAX + 1 - digit) / 10)
+		else if (sign == -1 && save > ((long)INT_MAX + 1 - digit) / 10)
 			found_error();
 		save = save * 10 + digit;
 		i++;
 	}
-	return ((int)(save * sign));
+	return (int)(save *sign);
+}
+
+void	parse_all_args(int argc, char **argv, t_stack **stack_a)
+{
+	char	**numbers;
+	int	i;
+	int	value;
+
+	if (argc < 2)
+		return ;
+	if (argc == 2)
+		numbers = ft_split(argv[1], ' ');
+	else
+		numbers = argv + 1;
+
+	i = 0;
+	while (numbers[i] != NULL)
+	{
+		value = parse_int(numbers[i]);
+		stack_add_back(stack_a, stack_new(value));
+		i++;
+	}
+	if (argc == 2)
+		free_split(numbers);
+	check_duplicates(*stack_a);
 }
 
 void	free_split(char **ptr)
@@ -145,4 +171,24 @@ char	**ft_split(char const *s, char c)
 	}
 	result[j] = NULL;
 	return (result);
+}
+
+int	check_duplicates(t_stack *stack_a)
+{
+	t_stack	*node1;
+	t_stack	*node2;
+
+	node1 = stack_a;
+	while (node1)
+	{
+		node2 = node1->next;
+		while (node2)
+		{
+			if (node1->value == node2->value)
+				return (1);
+			node2 = node2->next;
+		}
+		node1 = node1->next;
+	}
+	return (0);
 }

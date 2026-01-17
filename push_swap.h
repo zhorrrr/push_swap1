@@ -72,4 +72,7 @@ char	*get_word(const char *s, char c, size_t *i);
 int		count_word(char const *s, char c);
 void	free_split(char **ptr);
 
+void	parse_all_args(int argc, char **argv, t_stack **stack_a);
+int		check_duplicates(t_stack *stack_a);
+
 #endif

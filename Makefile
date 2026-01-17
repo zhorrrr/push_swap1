@@ -1,5 +1,5 @@
 NAME        = push_swap
-BONUS_NAME  = checker
+BONUS_NAME  = checker_bonus
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
 
@@ -19,7 +19,7 @@ SRCS = main.c \
        index.c \
        helpers.c \
        chunk_sort.c \
-       chunk_utils.c
+       chunk_utils.c 
 
 OBJS = $(SRCS:.c=.o)
 
