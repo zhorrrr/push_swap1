@@ -64,7 +64,6 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b);
 void	free_split(char **ptr);
 int		parse_int(char *str);
 void	found_error(void);
-int		is_digit(int c);
 
 char	**ft_split(char const *s, char c);
 void	ft_free(char **result, size_t j);

@@ -1,12 +1,5 @@
 #include "push_swap.h"
 
-int	is_digit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
 void	found_error(void)
 {
 	write(2, "Error\n", 6);
@@ -36,7 +29,7 @@ int	parse_int(char *str)
 		found_error();
 	while (str[i] != '\0')
 	{
-		if (is_digit(str[i]) != 1)
+		if (ft_isdigit(str[i]) != 1)
 			found_error();
 		int	digit = str[i] - '0';
 		if (sign == 1 && save > (INT_MAX - digit) / 10)
