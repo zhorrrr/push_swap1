@@ -65,11 +65,11 @@ void	free_split(char **ptr);
 int		parse_int(char *str);
 void	found_error(void);
 
-char	**ft_split(char const *s, char c);
-void	ft_free(char **result, size_t j);
-char	*get_word(const char *s, char c, size_t *i);
-int		count_word(char const *s, char c);
 void	free_split(char **ptr);
+
+int     get_sign(char *str, int *i);
+int     parse_digits(char *str, int i, int sign);
+int     parse_int(char *str);
 
 void	parse_all_args(int argc, char **argv, t_stack **stack_a);
 int		check_duplicates(t_stack *stack_a);

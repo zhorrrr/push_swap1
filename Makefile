@@ -17,9 +17,10 @@ SRCS = main.c \
        reverse_rotate_operations.c \
        push_operations.c \
        index.c \
-       helpers.c \
+       check_args.c \
        chunk_sort.c \
-       chunk_utils.c 
+       chunk_utils.c \
+       check_int.c 
 
 OBJS = $(SRCS:.c=.o)
 
@@ -32,8 +33,9 @@ BONUS_SRCS = checker/checker_bonus.c \
              rotate_operations.c \
              reverse_rotate_operations.c \
              push_operations.c \
-             helpers.c \
-             index.c
+             check_args.c \
+             index.c \
+	     check_int.c
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
