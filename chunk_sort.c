@@ -9,7 +9,7 @@ void	push_chunks(t_stack **a, t_stack **b)
 	size = stack_size(*a);
 	chunk = get_chunk_size(size);
 	pushed = 0;
-	while (*a)
+	while (*a != NULL)
 	{
 		if ((*a)->index < pushed)
 		{

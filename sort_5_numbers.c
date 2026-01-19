@@ -7,7 +7,7 @@ int	find_min_value(t_stack *stack)
 	if (stack == NULL)
 		return (0);
 	min = stack->value;
-	while (stack)
+	while (stack != NULL)
 	{
 		if (stack->value < min)
 			min = stack->value;
@@ -21,7 +21,7 @@ int	find_index_value(t_stack *stack, int value)
 	int	index;
 
 	index = 0;
-	while (stack)
+	while (stack != NULL)
 	{
 		if (stack->value == value)
 			return (index);
@@ -60,6 +60,6 @@ void	sort_5_numbers(t_stack **stack_a, t_stack **stack_b)
 		pb(stack_a, stack_b, 1);
 	}
 	sort_3_numbers(stack_a);
-	while (*stack_b)
+	while (*stack_b != NULL)
 		pa(stack_a, stack_b, 1);
 }

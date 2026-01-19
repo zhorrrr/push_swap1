@@ -10,7 +10,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	parse_all_args(argc, argv, &a);
-	if (check_duplicates(a))
+	if (check_duplicates(a) == 1)
 	{
 		free_stack(a);
 		found_error();

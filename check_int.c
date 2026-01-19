@@ -14,15 +14,15 @@ int	get_sign(char *str, int *i)
 	return (sign);
 }
 
-int	parse_digits(char *str, int i, int sign)
+int	convert_to_digit(char *str, int i, int sign)
 {
 	int	save;
 	int	digit;
 
 	save = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
-		if (!ft_isdigit(str[i]))
+		if (ft_isdigit(str[i]) == 0)
 			found_error();
 		digit = str[i] - '0';
 		if (sign == 1 && save > (INT_MAX - digit) / 10)
@@ -41,13 +41,13 @@ int	parse_int(char *str)
 	int	sign;
 	int	value;
 
-	if (!str || !str[0])
+	if (str == NULL || str[0] == '\0')
 		found_error();
 	i = 0;
 	sign = get_sign(str, &i);
-	if (!str[i])
+	if (str[i] == '\0')
 		found_error();
-	value = parse_digits(str, i, sign);
+	value = convert_to__digit(str, i, sign);
 	return (value * sign);
 }
 

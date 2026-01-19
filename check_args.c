@@ -45,10 +45,10 @@ int	check_duplicates(t_stack *stack_a)
 	t_stack	*node2;
 
 	node1 = stack_a;
-	while (node1)
+	while (node1 != NULL)
 	{
 		node2 = node1->next;
-		while (node2)
+		while (node2 != NULL)
 		{
 			if (node1->value == node2->value)
 				return (1);
