@@ -1,6 +1,5 @@
 #include "checker.h"
 
-
 static char	*read_bytes_stsh(int fd, char *stash)
 {
 	ssize_t	read_bytes;
