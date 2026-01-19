@@ -47,7 +47,7 @@ int	parse_int(char *str)
 	sign = get_sign(str, &i);
 	if (str[i] == '\0')
 		found_error();
-	value = convert_to__digit(str, i, sign);
+	value = convert_to_digit(str, i, sign);
 	return (value * sign);
 }
 

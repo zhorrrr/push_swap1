@@ -1,5 +1,5 @@
 NAME        = push_swap
-BONUS_NAME  = checker_bonus
+BONUS_NAME  = checker
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
 
@@ -24,10 +24,10 @@ SRCS = main.c \
 
 OBJS = $(SRCS:.c=.o)
 
-BONUS_SRCS = checker/checker_bonus.c \
-             checker/checker_utils_bonus.c \
-             checker/get_next_line.c \
-             checker/get_next_line_utils.c \
+BONUS_SRCS = checker_for_bonus/checker_bonus.c \
+             checker_for_bonus/checker_utils_bonus.c \
+             checker_for_bonus/get_next_line.c \
+             checker_for_bonus/get_next_line_utils.c \
              stack_utils.c \
              swap_operations.c \
              rotate_operations.c \
@@ -47,9 +47,9 @@ $(LIBFT):
 $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-bonus: $(LIBFT) $(BONUS_NAME)
+bonus: $(BONUS_NAME)
 
-$(BONUS_NAME): $(BONUS_OBJS)
+$(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
 	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
 
 %.o: %.c
@@ -66,8 +66,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re bonus
-
-
-
-
-

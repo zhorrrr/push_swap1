@@ -67,9 +67,9 @@ void	found_error(void);
 
 void	free_split(char **ptr);
 
-int     get_sign(char *str, int *i);
-int     convert_to_digit(char *str, int i, int sign);
-int     parse_int(char *str);
+int		get_sign(char *str, int *i);
+int		convert_to_digit(char *str, int i, int sign);
+int		parse_int(char *str);
 
 void	parse_all_args(int argc, char **argv, t_stack **stack_a);
 int		check_duplicates(t_stack *stack_a);

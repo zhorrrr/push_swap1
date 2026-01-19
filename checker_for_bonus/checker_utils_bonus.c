@@ -54,7 +54,7 @@ int	exec_part2(char *line, t_stack **a, t_stack **b)
 	return (1);
 }
 
-int execute_instruction(char *line, t_stack **a, t_stack **b)
+int	execute_instruction(char *line, t_stack **a, t_stack **b)
 {
 	if (line == NULL)
 		found_error();
@@ -64,5 +64,3 @@ int execute_instruction(char *line, t_stack **a, t_stack **b)
 		return (1);
 	return (0);
 }
-
-
