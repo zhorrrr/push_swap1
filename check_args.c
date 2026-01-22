@@ -5,22 +5,26 @@ void	parse_all_args(int argc, char **argv, t_stack **stack_a)
 	int		i;
 	int		value;
 	char	**numbers;
+	int		j;
 
+	i = 1;
 	if (argc < 2)
 		return ;
-	if (argc == 2)
-		numbers = ft_split(argv[1], ' ');
-	else
-		numbers = argv + 1;
-	i = 0;
-	while (numbers[i] != NULL)
+	while (i < argc)
 	{
-		value = parse_int(numbers[i]);
-		stack_add_back(stack_a, stack_new(value));
+		numbers = ft_split(argv[i], ' ');
+		if (numbers == NULL || numbers[0] == NULL)
+			found_error();
+		j = 0;
+		while (numbers[j] != NULL)
+		{
+			value = parse_int(numbers[j]);
+			stack_add_back(stack_a, stack_new(value));
+			j++;
+		}
+		free_split(numbers);
 		i++;
 	}
-	if (argc == 2)
-		free_split(numbers);
 	check_duplicates(*stack_a);
 }
 

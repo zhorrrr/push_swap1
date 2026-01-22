@@ -20,10 +20,8 @@ int	convert_to_digit(char *str, int i, int sign)
 	int	digit;
 
 	save = 0;
-	while (str[i] != '\0')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (ft_isdigit(str[i]) == 0)
-			found_error();
 		digit = str[i] - '0';
 		if (sign == 1 && save > (INT_MAX - digit) / 10)
 			found_error();
@@ -32,6 +30,12 @@ int	convert_to_digit(char *str, int i, int sign)
 		save = save * 10 + digit;
 		i++;
 	}
+	while (str[i] == ' ' || str[i] == '\t')
+	{
+		i++;
+	}
+	if (str[i] != '\0')
+		found_error();
 	return (save);
 }
 
